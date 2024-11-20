@@ -1,0 +1,24 @@
+//Room css/header
+// Main css
+//Items strut or css/header do the memory storing thing like search
+#include "Room.h"
+#include <iostream>
+#include <cstring>
+
+DigitalMedia::DigitalMedia(char* t, int y) { //constructor for the DigitalMedia
+    title = new char[80];  
+    strcpy(title, t);  //copys t into the array
+    year = y;
+}
+
+DigitalMedia::~DigitalMedia() { //destructor for the DigitalMedia
+    delete[] title;  
+}
+
+char* DigitalMedia::getTitle() { //getter for the tittle
+    return title;  
+}
+
+int DigitalMedia::getYear() { //getter for the year
+    return year;
+}

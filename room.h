@@ -1,45 +1,32 @@
 #ifndef ROOM_H
 #define ROOM_H
 
-#include <iostrean>
+#include <iostream>
 #include <cstring>
-#include <map>
 
 using namespace std;
 
-class Room 
-{
- private:
-  String description;
-  HashMap exits;        // stores exits of this room.
+class room { //defins of the DigitalMedia
+protected:
+    char* currentRoom;
+    char* exits;
+    char* storedItems;
+    char* description
+  int year;
 
- public:
-  ArrayList<Item> items = new ArrayList<Item>();
+public:
+    room(); 
+  room(char* cr, char* e, char* si, char* d); //constructor that takes char pointer and the int
+    virtual ~DigitalMedia();
   
-   void Room(String description);
-
-   void setExit();
-
-   string getShortDescription();
-
-   string getLongDescription();
-
- private:
-
-   String getExitString();
-
- public:
-
-   Room getExit(String direction);
-    
-   Item getItem(int index);
-
-   Item getItem(String itemName);
-    
-   void removeItem(String itemName);
-    
-   void setItem(Item newitem);
-    
-   String getRoomItems();
+  char* getCurrentRoom();
+    char* getTitle();
+    char* getStoredItems();
+    char* getDescription();
+ 
+    virtual void displayInfo() = 0; //overridden in child classes
+    //the 0 means it has to  be implemented by child class making 
+    //it pure virtual function
+};
 
 #endif

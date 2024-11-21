@@ -1,0 +1,14 @@
+#include "item.h"
+#include <iostrean>
+#include <cstring>
+
+using namespace std;
+
+  item::Item(string newdescription) {
+		description = newdescription;
+	}
+	
+  String item::getDescription() {
+		return description;
+		}
+

@@ -1,0 +1,18 @@
+#ifndef ITEM_H
+#define ITEM_H
+
+#include "item.h"
+#include <iostrean>
+#include <cstring>
+
+using namespace std;
+
+class Item { //prints a description of diffrent items
+
+ public:
+        String description;
+
+        Item(String newdescription);
+
+        String getDescription();
+}

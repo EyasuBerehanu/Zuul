@@ -1,94 +1,46 @@
 File Edit Options Buffers Tools CSS Help
-File Edit Options Buffers Tools C Help
-#ifndef ROOM_H
-#define ROOM_H
+//Room cpp/header
+// Main cpp
+//Items strut or cpp/header do the memory storing thing like search
 
-#include <iostrean>
+#include "room.h"
+#include <iostream>
 #include <cstring>
-
 using namespace std;
 
-class Room
-{
-  String description;
-  HashMap exits;        // stores exits of this room.
+room::room(char* cr, char* e, char* si, char* d) { //constructor for the DigitalMedia
 
-  ArrayList<Item> items = new ArrayList<Item>();
+    currentRoom = new char[80];
+    strpy(currentRoom, cr);
+  
+    exits = new char[80];
+    strcpy(exits, t);  //copys t into the array
 
-    room::Room(String description)
-    {
-        this.description = description;
-        exits = new HashMap();
-    }
+    storedItems = new char[80];
+    strcpy(storedItems, si)
 
-   room::void setExit()
-    {
-        exits.put(direction, neighbor);
-    }
+    description = new char[80];
+    strcpy(description, d)
+}
 
+// room::~room() { //destructor for the DigitalMedia
+//    delete[] title;
+//}
 
-  room::string getShortDescription()
-    {
-        return description;
-    }
+char* room::getCurrentRoom() {
+  return currentRoom();
+}
+char* room::getExits() { //getter for the exits
+    return exits;
+}
 
-  room::string getLongDescription()
-    {
-        return "You are " + description + ".\n" + getExitString();
-    }
+char* room::getStoredItems() { //getter for the stored items in the room
+    return storedItems;
+}
 
-  room::String getExitString()
-    {
-        String returnString = "Exits:";
-        Set keys = exits.keySet();
-        for(Iterator iter = keys.iterator(); iter.hasNext(); )
-            returnString += " " + iter.next();
-        returnString += "\nItems in the room:\n";
-        returnString += getRoomItems() + "\n";
-        return returnString;
-    }
-
-  room::Room getExit(String direction)
-    {
-        return (Room)exits.get(direction);
-    }
-
-  room::Item getItem(int index) {
-        return getItem(index);
-    }
-
-  room::Item getItem(String itemName) {
-        for (int i = 0; i < items.size(); i++) {
-  IF (ITEMS.GET(I).GETDESCRIPTION().EQUALS(ITEMNAME)) {
-                                RETURN ITEMS.GET(I);
-
-                        }
-                }
-        RETURN NULL;
-    }
-
-  ROOM::VOID REMOVEITEM(STRING ITEMNAME) {
-
-        FOR (INT I = 0; I < ITEMS.SIZE(); I++) {
-                        IF (ITEMS.GET(I).GETDESCRIPTION().EQUALS(ITEMNAME)) {
-                                ITEMS.REMOVE(I);
-
-                        }
-                }
-    }
-
-  ROOM::VOID SETITEM(ITEM NEWITEM) {
-        ITEMS.ADD(NEWITEM);
-    }
-
-  ROOM::STRING GETROOMITEMS() {
-        // TODO AUTO-GENERATED METHOD STUB
-                        STRING OUTPUT = "";
-                        FOR (INT I = 0; I < ITEMS.SIZE(); I++) {
-                                OUTPUT += ITEMS.GET(I).GETDESCRIPTION() + "";
-                       }
-
-
+char* room::getDescription() { //getter for the desription
+  return description;
+}
 
 
 
